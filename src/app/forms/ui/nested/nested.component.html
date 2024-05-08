@@ -1,0 +1,28 @@
+<form [formGroup]="form" class="form-block" ngxsForm="forms.nestedForm">
+    <section class="section">
+        <div class="row">
+            <scb-radio-button-group 
+                [options]="genderOptions"
+                formControlName="gender"
+                class="col">
+            </scb-radio-button-group>
+        </div>
+
+        <div class="row">
+            <full-name formControlName="fullName"></full-name>
+        </div>
+
+        <div class="row">
+            <input-date 
+                class="col"
+                label="Дата рождения"
+                formControlName="birthDate"
+                [max]="today">
+            </input-date>
+        </div>
+
+        <div class="row">
+            <input-address formControlName="address"></input-address>
+        </div>
+    </section>
+</form>

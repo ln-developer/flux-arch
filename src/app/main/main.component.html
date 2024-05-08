@@ -1,0 +1,40 @@
+<mat-form-field>
+    <mat-label>Выберите айдишник</mat-label>
+    <mat-select [formControl]="control">
+        <mat-option [value]="null">Все посты</mat-option>
+        @for (userId of userIds$ | async; track userId) {
+            <mat-option [value]="userId">{{ userId }}</mat-option>
+        }
+    </mat-select>
+</mat-form-field>
+
+<!-- <mat-form-field>
+    <mat-label>Выберите пользователя</mat-label>
+    <mat-select [formControl]="userControl">
+        <mat-option [value]="null">Все посты</mat-option>
+        @for (user of users$ | async; track user) {
+            <mat-option [value]="user">{{ user.name }}</mat-option>
+        }
+    </mat-select>
+</mat-form-field>
+
+<mat-card>
+    <h2>USERS INFO</h2>
+
+    {{ usersState$ | async | json }}
+</mat-card> -->
+
+@if (getPostsList$ | async; as getPostsList) {
+    <div class="posts__container">
+        @for (post of getPostsList(control?.value ?? 0); track post) {
+            <mat-card class="post__item">
+                <mat-card-header>
+                    <mat-card-title>{{ post.title }}</mat-card-title>
+                    <mat-card-subtitle>Пользователь ID {{ post.userId }}</mat-card-subtitle>
+                </mat-card-header>
+        
+                <mat-card-content>{{ post.body }}</mat-card-content>
+            </mat-card>
+        }
+    </div>
+}

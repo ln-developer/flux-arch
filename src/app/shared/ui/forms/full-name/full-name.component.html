@@ -1,0 +1,48 @@
+<form [formGroup]="form">
+    <div class="row">
+        <mat-form-field class="col" appearance="outline">
+            <mat-label>Фамилия</mat-label>
+            <input 
+                matInput 
+                type="text" 
+                formControlName="lastName"
+                firstCapitalLetter
+            />
+            @if (form.get('lastName')?.value) {
+                <button matSuffix mat-icon-button (click)="flush('lastName')">
+                    <mat-icon>close</mat-icon>
+                </button>
+            }
+        </mat-form-field>
+    
+        <mat-form-field class="col" appearance="outline">
+            <mat-label>Имя</mat-label>
+            <input 
+                matInput 
+                type="text" 
+                formControlName="firstName"
+                firstCapitalLetter
+            />
+            @if (form.get('firstName')?.value) {
+                <button matSuffix mat-icon-button (click)="flush('firstName')">
+                    <mat-icon>close</mat-icon>
+                </button>
+            }
+        </mat-form-field>
+    
+        <mat-form-field class="col" appearance="outline">
+            <mat-label>Отчество</mat-label>
+            <input 
+                matInput 
+                type="text" 
+                formControlName="middleName"
+                firstCapitalLetter
+            />
+            @if (form.get('middleName')?.value) {
+                <button matSuffix mat-icon-button (click)="flush('middleName')">
+                    <mat-icon>close</mat-icon>
+                </button>
+            }
+        </mat-form-field>
+    </div>
+</form>

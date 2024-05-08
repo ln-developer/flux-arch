@@ -1,0 +1,17 @@
+<header class="header">
+    <div class="header__container">
+        <div class="header__party party">
+            <h1 class="party__name">NGXS</h1>
+        </div>
+
+        <div class="header__user">
+            <mat-form-field appearance="outline" class="user__select">
+                <mat-select [formControl]="selectedUser" [compareWith]="compareFn">
+                    @for (user of usersList$ | async; track user) {
+                        <mat-option [value]="user">{{ user.name }}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</header>

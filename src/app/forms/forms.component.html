@@ -1,0 +1,25 @@
+@if(isFormValid$ | async; as isFormValid) {
+    <mat-card class="card">
+        <mat-tab-group>
+            <mat-tab label="Form Group">
+                <app-group></app-group>
+
+                <button 
+                    [disabled]="isFormValid(this.selectedTab)" 
+                    type="submit">
+                    Submit
+                </button>
+            </mat-tab>
+
+            <mat-tab label="Nested Form">
+                <app-nested></app-nested>
+
+                <button 
+                    [disabled]="isFormValid(this.selectedTab)" 
+                    type="submit">
+                    Submit
+                </button>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card>
+}

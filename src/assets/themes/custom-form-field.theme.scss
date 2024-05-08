@@ -1,0 +1,24 @@
+@use "@angular/material" as mat;
+@use 'sass:map';
+
+@import './colors.scss';
+
+@mixin custom-form-field-theme($theme) {
+    $primary: map.get($theme, primary);
+    $accent: map.get($theme, accent);
+    $warn: map.get($theme, warn);
+    $foreground: map.get($theme, foreground);
+    $background: map.get($theme, background);
+
+    .mat-mdc-text-field-wrapper {
+        &.mdc-text-field--outlined,
+        &.mdc-text-field--filled {
+            --mdc-filled-text-field-container-color: #F2F4F7;
+            background-color: $input-color;
+            border-radius: 8px;
+            *, *:before, *:after {
+                border: none;
+            }
+        }
+    }
+}

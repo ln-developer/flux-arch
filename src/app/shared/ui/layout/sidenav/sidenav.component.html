@@ -1,0 +1,21 @@
+<mat-drawer-container class="sidenav">
+	<mat-drawer
+        #drawer
+        mode="side" 
+        disableClose="true" 
+        opened="true"
+        class="sidenav__panel"
+    >
+		<mat-nav-list class="sidenav__list list">
+			<mat-list-item class="list__item item" routerLink="/forms">
+				<mat-icon class="item__icon">home</mat-icon>
+			</mat-list-item>
+
+			<mat-list-item class="list__item item" routerLink="/">
+				<mat-icon class="item__icon">dashboard</mat-icon>
+			</mat-list-item>
+		</mat-nav-list>
+	</mat-drawer>
+
+	<ng-content select="[mainContent]"></ng-content>
+</mat-drawer-container>

@@ -1,0 +1,26 @@
+{
+    "/suggestions": {
+        "target": "http://suggestions.dadata.ru",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/b2b/v2/nsi-gateway/api": {
+        "target": "https://dev.sberbankins.ru",
+        "logLevel": "debug",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/posts": {
+        "target": "https://jsonplaceholder.typicode.com",
+        "logLevel": "debug",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/users": {
+        "target": "https://jsonplaceholder.typicode.com",
+        "logLevel": "debug",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

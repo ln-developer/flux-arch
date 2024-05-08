@@ -1,0 +1,11 @@
+<mat-radio-group class="scb-radio-btn-group" [formControl]="control">
+    @for (option of options; track option) {
+        <mat-radio-button 
+            class="scb-radio-btn"
+            [class.scb-radion-btn_selected]="control.value === option.value"
+            [value]="option.value"
+        >
+            {{ option.viewValue }}
+        </mat-radio-button>
+    }
+</mat-radio-group>

@@ -1,0 +1,90 @@
+
+<!-- ngxsFormDebounce - при положительных значениях стейт обновляется асинхронно (дефолт - 100 мс) -->
+<!-- ngxsFormDebounce - при значении -1 - синхронно -->
+
+<!-- [ngxsFormClearOnDestroy]="true" -->
+<form 
+    [formGroup]="form" 
+    ngxsForm="forms.groupForm"
+    class="form-block"
+    (submit)="onSubmit()"
+>
+    <section class="section">
+        <div class="row">
+            <mat-form-field class="col" appearance="outline">
+                <mat-label>Автозаполнение</mat-label>
+                <input
+                    type="text"
+                    matInput
+                    formControlName="testAutocomplete"
+                    [matAutocomplete]="countryList"
+                />
+                <mat-autocomplete #countryList="matAutocomplete" [displayWith]="displayWith">
+                    @for (country of filteredCountryList$ | async; track country) {
+                        <mat-option [value]="country">{{ country.name }}</mat-option>
+                    }
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field class="col" appearance="outline">
+                <mat-label>Выпадающий список</mat-label>
+                <mat-select formControlName="testSelect">
+                    @for (vehicleCategory of vehicleCategoryList$ | async; track $index) {
+                        <mat-option [value]="vehicleCategory">{{ vehicleCategory }}</mat-option>
+                    }
+                </mat-select>
+                @if(form.get('testSelect')?.hasError('required')) {
+                    <mat-error>Обязательное поле</mat-error>
+                }
+            </mat-form-field>
+
+            <!-- <tui-combo-box formControlName="testValue">
+                <tui-data-list-wrapper
+                  *tuiDataList
+                  [items]="vehicleCategoryList$ | async"
+                ></tui-data-list-wrapper>
+            </tui-combo-box> -->
+        </div>
+
+        <div class="row">
+            <mat-form-field class="col" appearance="outline">
+                <mat-label>Поле ввода</mat-label>
+                <input 
+                    matInput 
+                    type="text" 
+                    formControlName="testMaskedInput"
+                    mask="W 000 WW 00||W 000 WW 000"
+                    [specialCharacters]="[' ']"
+                    [dropSpecialCharacters]="true"
+                    [patterns]="customPatterns"
+                    toUppercase
+                />
+                @if (form.get('testMaskedInput')?.value) {
+                    <button matSuffix mat-icon-button (click)="flush('testMaskedInput')">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                }
+                @if (form.get('testMaskedInput')?.hasError('mask')) {
+                    <mat-error>Неккоректное значение</mat-error>
+                }
+            </mat-form-field>
+
+            <input-year
+                class="col"
+                formControlName="testInputYear"
+                label="Выбор года"
+                [min]="minYear"
+                [max]="maxYear">
+            </input-year>
+        </div>
+    </section>
+
+    <div class="form__actions">
+        <button 
+            mat-flat-button 
+            color="accent" 
+            type="submit">
+            Сохранить
+        </button>
+    </div>
+</form>

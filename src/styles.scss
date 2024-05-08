@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+@import "./assets/themes/custom-theme.scss";
+
+@include mat.core-theme($custom-theme);
+@include mat.all-component-themes($custom-theme);
+@include custom-components-theme($custom-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.col {
+    flex: 1;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.stepper {
+    &__footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+    }
+}
+
+.form-block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-end;
+}

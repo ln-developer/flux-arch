@@ -1,0 +1,21 @@
+@import "../../../../../assets/themes/colors.scss";
+
+.sidenav {
+    &__panel {
+        background-color: $grey;
+        width: 60px;
+        transition: width 0.3s;
+    }
+
+    &__list {
+        .list {
+            &__item {  
+                .item {
+                    &__title, &__icon {
+                        color: #ffff;
+                    }
+                }  
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+<div class="wrapper">
+    <h2>Material</h2>
+
+    <mat-form-field>
+        <mat-label>{{ label }}</mat-label>
+        <input
+            matInput
+            [matDatepicker]="datePicker"
+            [formControl]="control"
+            [placeholder]="placeholder"
+            [min]="minDate"
+            [max]="maxDate"
+        />
+        <mat-datepicker-toggle 
+            matSuffix 
+            [for]="datePicker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #datePicker></mat-datepicker>
+    </mat-form-field>
+</div>
+
+<div class="wrapper">
+    <h2>Taiga</h2>
+
+    <tui-input-date [formControl]="control">
+        {{ label }}
+        <input tuiTextfield />
+    </tui-input-date>
+</div>
+
+<div class="wrapper">
+    <h2>Material + Maskito</h2>
+
+    <mat-form-field>
+        <mat-label>{{ label }}</mat-label>
+        <input
+            matInput
+            [matDatepicker]="datePicker"
+            [formControl]="control"
+            [placeholder]="placeholder"
+            [min]="minDate"
+            [max]="maxDate"
+            [maskito]="maskitoOptions"
+        />
+        <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+        <mat-datepicker #datePicker></mat-datepicker>
+    </mat-form-field>
+</div>

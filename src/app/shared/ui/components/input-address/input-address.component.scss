@@ -1,0 +1,31 @@
+@import "../../../../../assets/themes/colors.scss";
+
+mat-form-field {
+    width: 100%;
+}
+
+.spinner {
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 62%;
+    transform: translate(-100%, -100%);
+
+    .loading {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border: 2px solid rgba(255, 255, 255, 1);
+        border-color: $main-color;
+        border-top-color: transparent;
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spin 700ms infinite linear;
+        -webkit-animation: spin 700ms infinite linear;
+    }
+}

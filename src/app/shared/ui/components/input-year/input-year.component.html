@@ -1,0 +1,27 @@
+<mat-form-field>
+    <mat-label>{{ label }}</mat-label>
+    <input
+        matInput
+        [matDatepicker]="yearPicker"
+        yearAdapter
+        [formControl]="control"
+        [placeholder]="placeholder"
+        [min]="minYear"
+        [max]="maxYear"
+    />
+    <mat-datepicker-toggle matSuffix [for]="yearPicker"></mat-datepicker-toggle>
+    <mat-datepicker
+        #yearPicker
+        startView="multi-year"
+        (yearSelected)="chosenYearHandler($event, yearPicker)"
+        panelClass="custom-input-year">
+    </mat-datepicker>
+</mat-form-field>
+
+<tui-input-year 
+    [formControl]="control"
+    [min]="2000"
+    [max]="2024">
+    {{ label }}
+</tui-input-year>
+

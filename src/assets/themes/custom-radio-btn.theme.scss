@@ -1,0 +1,50 @@
+@use "@angular/material" as mat;
+@use 'sass:map';
+
+@import './colors.scss';
+
+@mixin custom-radio-btn-theme($theme) {
+    $primary: map.get($theme, primary);
+    $accent: map.get($theme, accent);
+    $warn: map.get($theme, warn);
+    $foreground: map.get($theme, foreground);
+    $background: map.get($theme, background);
+
+    scb-radio-button-group {
+        .mat-mdc-radio-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        & .mat-mdc-radio-button {
+            &, & * {
+                cursor: pointer;
+            }
+
+            border-radius: 20px;
+            padding: 8px 10px 8px 10px;
+            background-color: $input-color;
+
+            .mdc-form-field > {
+                .mdc-radio {
+                    display: none;
+                }
+
+                .mdc-label {
+                    color: $main-color;
+                    padding: 0;
+                }
+            }
+
+            &.scb-radion-btn_selected {
+                background-color: $grey;
+
+                .mdc-form-field > {
+                    .mdc-label {
+                        color: #ffff;
+                    }
+                }
+            }
+        }
+    }
+}

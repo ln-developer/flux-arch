@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -21,7 +22,27 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@shared/kit": ["src/app/shared/ui/index.ts"],
+      "@shared/components": ["src/app/shared/ui/components/index.ts"],
+      "@shared/forms": ["src/app/shared/ui/forms/index.ts"],
+      "@shared/layout": ["src/app/shared/ui/layout/index.ts"],
+      "@shared/core": ["src/app/shared/utils/index.ts"],
+      "@shared/classes": ["src/app/shared/utils/classes/index.ts"],
+      "@shared/consts": ["src/app/shared/utils/consts/index.ts"],
+      "@shared/directives": ["src/app/shared/utils/directives/index.ts"],
+      "@shared/functions": ["src/app/shared/utils/functions"],
+      "@shared/patterns": ["src/app/shared/utils/patterns/index.ts"],
+      "@shared/pipes": ["src/app/shared/utils/pipes/index.ts"],
+      "@shared/providers": ["src/app/shared/utils/providers/index.ts"],
+      "@shared/services": ["src/app/shared/utils/services/index.ts"],
+      "@shared/types": ["src/app/shared/utils/types/index.ts"],
+      "@shared/validators": ["src/app/shared/utils/validators/index.ts"],
+      "@shared/guards": ["src/app/shared/utils/guards"],
+      "@shared/tokens": ["src/app/shared/utils/tokens"],
+      "@store/*": ["src/app/store/*"],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

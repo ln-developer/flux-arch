@@ -1,0 +1,42 @@
+@import "../../../../../assets/themes/colors.scss";
+
+.header {
+    background-color: $main-color;
+    display: flex;
+    justify-content: center;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin: 0 60px;
+    }
+
+    &__party {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        & .party {
+            &__icon {
+                color: #ffff;
+                width: 40px;
+                height: 40px;
+                font-size: 40px;
+            }
+
+            &__name {
+                color: #ffff;
+            }
+        }
+    }
+}
+
+::ng-deep {
+    .user__select {
+        .mat-mdc-form-field-subscript-wrapper {
+            display: none;
+        }
+    }
+}
